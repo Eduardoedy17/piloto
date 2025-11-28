@@ -11,6 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'piloto.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pweb.settings')
 
 application = get_wsgi_application()
+
+app = application
