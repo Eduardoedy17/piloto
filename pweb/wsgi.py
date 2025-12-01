@@ -1,5 +1,5 @@
 """
-WSGI config for piloto project.
+WSGI config for pweb project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

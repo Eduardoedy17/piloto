@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django.urls import path
-from home.views import index  # <--- Adicione esta importação
+from django.urls import include, path
+from home.views import index, sobre, contato, ajuda
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index'),  # <--- Adicione esta linha (aspas vazias = página inicial)
+    path('', include('home.urls')),    
 ]

@@ -1,5 +1,5 @@
 """
-ASGI config for piloto project.
+ASGI config for pweb project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
