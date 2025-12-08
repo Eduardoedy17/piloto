@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} Produtos {% endblock title %}
+
+{% block titulo_pagina %} Gerenciamento de Produtos {% endblock titulo_pagina %}
+
+{% block content %}
+    <div class="alert alert-info">
+        <i class="fas fa-info-circle"></i> Aqui ficará a lista de produtos do sistema.
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Produto A</h5>
+                    <p class="card-text">Descrição do produto...</p>
+                    <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
