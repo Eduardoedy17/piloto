@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> {% block title %} Title {% endblock title %} </title>
+    <title>{% block title %}Admin Dashboard{% endblock %}</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <meta name="description" content="">
-    <link rel="stylesheet" href="">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -90,60 +88,49 @@
             margin-bottom:20px;
         }
     </style>
-<script>var __uzdbm_1 = "e602cead-100d-4bd1-b56d-314b371eeb0a";var __uzdbm_2 = "MDJlMWRmOGUtZGs3dS00NzlkLTk0MTUtMDM4ZmUyMGMwN2Y3JDE4OS41MC4yMTQuMTkw";var __uzdbm_3 = "";var __uzdbm_4 = "false";var __uzdbm_5 = "";var __uzdbm_6 = "";var __uzdbm_7 = "";</script> <script>   (function (w, d, e, u, c, g, a, b) {     w["SSJSConnectorObj"] = w["SSJSConnectorObj"] || {       ss_cid: c,       domain_info: "auto",     };     w[g] = function (i, j) {       w["SSJSConnectorObj"][i] = j;     };     a = d.createElement(e);     a.async = true;     if (       navigator.userAgent.indexOf('MSIE') !== -1 ||       navigator.appVersion.indexOf('Trident/') > -1     ) {       u = u.replace("/advanced/", "/advanced/ie/");     }     a.src = u;     b = d.getElementsByTagName(e)[0];     b.parentNode.insertBefore(a, b);   })(     window, document, "script", "/18f5227b-e27b-445a-a53f-f845fbe69b40/stormcaster.js", "dk7w", "ssConf"   );   ssConf("c1", "https://suap.ifpi.edu.br");   ssConf("c3", "c99a4269-161c-4242-a3f0-28d44fa6ce24");   ssConf("au", "suap.ifpi.edu.br");   ssConf("cu", "validate.perfdrive.com, ssc"); </script> </head>
+</head>
 <body>
 
-
-    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="text-center text-white mb-3">
             <h3>Eduardo Sousa</h3>
         </div>
      
-<!-- MENU DO SISTEMA-->        
-<ul class="nav flex-column">
-    <li class="nav-item">
-        <a href="{% url 'index' %}" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
-    </li>
-    <li class="nav-item">
-        <a href="#" class="nav-link"><i class="fas fa-chart-bar"></i> <span>Views</span></a>
-        <ul class="submenu nav flex-column">
+        <ul class="nav flex-column">
             <li class="nav-item">
-                <a href="{% url 'contato' %}" class="nav-link">Contato</a>
+                <a href="{% url 'index' %}" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
             </li>
             <li class="nav-item">
-                <a href="{% url "sobre" %}" class="nav-link">Sobre</a>
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'exibir_item' 10 %}" class="nav-link">Exibir Item</a>
-            </li>  
+                <a href="#" class="nav-link"><i class="fas fa-chart-bar"></i> <span>Views</span></a>
+                <ul class="submenu nav flex-column">
+                    <li class="nav-item">
+                        <a href="{% url 'contato' %}" class="nav-link">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'sobre' %}" class="nav-link">Sobre</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{% url 'ajuda' %}" class="nav-link">Ajuda</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{% url 'exibir_item' 10 %}" class="nav-link">Exibir Item</a>
+                    </li>  
 
+                    <li class="nav-item">
+                        <a href="{% url 'diasemana' 2 %}" class="nav-link">Dia da Semana</a>
+                    </li> 
 
-            <li class="nav-item">
-                <a href="{% url 'diasemana' 2 %}" class="nav-link">Dia Semana</a>
-            </li> 
-
-
-            <li class="nav-item">
-                <a href="{% url "produto" %}" class="nav-link">Produtos</a>
+                    <li class="nav-item">
+                        <a href="{% url 'produto' %}" class="nav-link">Produtos</a>
+                    </li>
+                </ul>
             </li>
         </ul>
-    </li>
-
-
-</ul>
-
-
-
-
-
-
     </div>
 
-
-    <!-- Main Content -->
     <div class="content" id="content">
-        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <button class="btn btn-primary" id="toggle-sidebar"><i class="fas fa-bars"></i></button>
@@ -164,35 +151,25 @@
             </div>
         </nav>
 
-
-        <!-- Dashboard Content -->
         <div class="container-fluid mt-4">
 
-
-		
            <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card card-custom">
                         <div class="card-header card-header-custom">
-                            <h5>{% block titulo %} titulo {% endblock  %}</h5>
+                            <h5>{% block titulo_pagina %} Título Padrão {% endblock  %}</h5>
                         </div>
                         <div class="card-body card-body-custom">
-                           <h5>{% block conteudo  %} conteudo {% endblock  %}</h5>
+                           {% block content %} 
+                                <p>Conteúdo padrão...</p>
+                           {% endblock  %}
                         </div>
                     </div>
                 </div>
-      
-    
-
-
             </div>
-
-
 			
-            <!-- Additional content like charts, tables, etc. can be added here -->
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -201,7 +178,6 @@
             document.getElementById('sidebar').classList.toggle('active');
             document.getElementById('content').classList.toggle('active');
         });
-
 
         // Submenu toggle
         document.querySelectorAll('.nav-item').forEach(function (item) {
@@ -218,23 +194,5 @@
             });
         });
     </script>
-</body>
-</html>
-
-
-
-</head>
-<body>
-
-    <a href="{% url 'index'%}">Home</a> |
-    <a href="{% url 'sobre'%}">Sobre</a> |
-    <a href="{% url 'contato'%}">Contato</a> |
-    <a href="{% url 'ajuda'%}">Ajuda</a> 
-
-    <h1> {% block titulo_pagina %} Título da Página {% endblock %} </h1>
-
-    {% block content %}
-    {% endblock %}
-
 </body>
 </html>

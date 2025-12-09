@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %} Detalhes do Item {% endblock title %}
+{% block title %} Item {{ id }} {% endblock title %}
 
-{% block titulo_pagina %} 
+{% block titulo_pagina %} Detalhes do Item {% endblock titulo_pagina %}
 
-    <h1>Você está visualizando o item {{ id }} </h1>
+{% block content %}
 
-{% endblock titulo_pagina %}
+    <p>Você está visualizando os detalhes do item de código: <strong>{{ id }}</strong></p>
+
+{% endblock %}
