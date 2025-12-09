@@ -3,7 +3,12 @@ from django.http import HttpResponse
 
 # View 'index'
 def index(request):
-    return render(request, "index.html")
+    contexto = {
+        "data": "05/12/2025",
+        "cidade": "Teresina",
+        "ip": "127.0.0.1",
+    }
+    return render(request, "index.html", contexto)
 
 # View 'sobre'
 def sobre(request):
@@ -16,16 +21,16 @@ def contato(request):
 def ajuda(request): 
     return render(request, "ajuda.html")
 
-# View 'exibir_item'
-def exibir_item(request, id):  
-    return render(request, 'exibir_item.html', {'id': id})
-
-# View 'perfil'
+# View 'perfil': Pega o texto da URL e manda para a tela
 def perfil(request, usuario):  
     return render(request, 'perfil.html', {'usuario': usuario})
 
+# View 'exibir_item': Pega o ID da URL e manda para a tela
+def exibir_item(request, id):  
+    return render(request, 'exibir_item.html', {'id': id})
+
 # View 'produto'
-def produtos(request):
+def produto(request):
     contexto = {
         'lista': [
             {'id': 1, 'nome': 'Notebook', 'preco': '2.500,00'},
@@ -46,9 +51,9 @@ def produtos(request):
     return render(request, 'produto/lista.html',contexto)
 
 
-# View 'dia_semana'
+# View 'dia da semana'
 def diasemana(request, dia_num):
-    # Dicionário com os dias
+    # Dicionário com os dias da semana
     dias = {
         1: 'Domingo',
         2: 'Segunda-feira',
@@ -58,8 +63,6 @@ def diasemana(request, dia_num):
         6: 'Sexta-feira',
         7: 'Sábado'
     }
-    
-    # Busca o dia, se não achar retorna 'Dia inválido'
+    # Obtém o dia correspondente ou uma mensagem de erro
     resultado = dias.get(dia_num, 'Dia inválido')
-    
     return render(request, 'diasemana.html', {'dia': resultado})

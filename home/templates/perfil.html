@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %} Perfil do Usuário {% endblock title %}
+{% block title %} Perfil {% endblock title %}
 
-{% block titulo_pagina %} Perfil de: {{ usuario }} {% endblock titulo_pagina %}
+{% block titulo_pagina %} Perfil do Usuário {% endblock titulo_pagina %}
+
+{% block content %}
+
+    Perfil: <strong>{{ usuario }}</strong>
+
+{% endblock %}
