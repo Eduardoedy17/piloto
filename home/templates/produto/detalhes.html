@@ -4,8 +4,29 @@
 {% block titulo_pagina %} Detalhes do Produto {% endblock titulo_pagina %}
 
 {% block content %}
-    <div class="alert alert-info" role="alert">
-        Você está vendo detalhes do Produto ID: <strong>{{ id }}</strong>
+
+    {% if produto %}
+        <div class="card">
+            <div class="card-header">
+                <strong>{{ produto.nome }}</strong>
+            </div>
+            <div class="card-body">
+                <p><strong>Código (ID):</strong> {{ produto.id }}</p>
+                <p><strong>Descrição:</strong> {{ produto.nome }}</p>
+                <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+                </div>
+        </div>
+    {% else %}
+        <div class="alert alert-warning">
+            Produto com ID <strong>{{ id }}</strong> não encontrado.
+        </div>
+    {% endif %}
+    
+    <div class="mt-3">
+        <a href="{% url 'produto' %}" class="btn btn-secondary">Voltar</a>
+        {% if produto %}
+            <a href="{% url 'editar_produto' produto.id %}" class="btn btn-warning">Editar</a>
+        {% endif %}
     </div>
-    <a href="{% url 'produto' %}" class="btn btn-secondary">Voltar</a>
+
 {% endblock %}

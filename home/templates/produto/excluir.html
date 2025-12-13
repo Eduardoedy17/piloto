@@ -4,10 +4,18 @@
 {% block titulo_pagina %} Confirmação de Exclusão {% endblock titulo_pagina %}
 
 {% block content %}
-    <div class="alert alert-danger" role="alert">
-        Você está removendo o Produto ID: <strong>{{ id }}</strong>
-    </div>
     
-    <button class="btn btn-danger">Confirmar Exclusão</button>
-    <a href="{% url 'produto' %}" class="btn btn-secondary">Cancelar</a>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="alert alert-danger" role="alert">
+            Você está prestes a remover o Produto ID: <strong>{{ id }}</strong>.
+            <br>
+            Esta ação não pode ser desfeita (enquanto o servidor estiver rodando).
+        </div>
+        
+        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+        <a href="{% url 'produto' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+
 {% endblock %}
