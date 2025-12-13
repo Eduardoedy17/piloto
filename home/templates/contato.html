@@ -1,11 +1,20 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %} Contato {% endblock title %}
 
-{% block titulo_pagina %} Contato {% endblock titulo_pagina %}
+{% block titulo  %} Contato {% endblock %}
 
-{% block content %}
 
-    <p>Entre em contato conosco: <strong>contato@exemplo.com</strong></p>
-    
+{% block titulo_page  %} Contato {% endblock %}
+
+
+{% block conteudo  %}  
+
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }} <!-- Renderiza cada campo do formulário com <p> tags -->
+        <button class="btn btn-primary mt-4" type="submit">Enviar</button>
+    </form>
+
+
 {% endblock %}

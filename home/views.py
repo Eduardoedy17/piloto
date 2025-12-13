@@ -1,21 +1,26 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import ContatoForm, ProdutoForm
 
 # View 'index'
 def index(request):
-    contexto = {
+    context = {
         "data": "05/12/2025",
         "cidade": "Teresina",
         "ip": "127.0.0.1",
     }
-    return render(request, "index.html", contexto)
+    return render(request, "index.html", context)
 
 # View 'sobre'
 def sobre(request):
     return render(request, "sobre.html")
-# View 'contato'
+#view contato
 def contato(request):
-    return render(request, "contato.html")
+    form = ContatoForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'contato.html', context)
 
 # View 'Ajuda'
 def ajuda(request): 
@@ -31,7 +36,7 @@ def exibir_item(request, id):
 
 # View 'produto'
 def produto(request):
-    contexto = {
+    context = {
         'lista': [
             {'id': 1, 'nome': 'Notebook', 'preco': '2.500,00'},
             {'id': 2, 'nome': 'Monitor', 'preco': '500,00'},
@@ -48,7 +53,15 @@ def produto(request):
             {'id': 13, 'nome': 'Roteador Wi-Fi', 'preco': '220,00'},
         ],
     }
-    return render(request, 'produto/lista.html',contexto)
+    return render(request, 'produto/lista.html', context)
+
+
+def produtoform(request):
+    form = ProdutoForm()
+    contexto = {
+        'form': form,
+    }
+    return render(request, 'produto/form.html', contexto)
 
 
 # View 'dia da semana'
