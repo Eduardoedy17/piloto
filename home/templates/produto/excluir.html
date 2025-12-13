@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} Excluir Produto {% endblock title %}
+{% block titulo_pagina %} Confirmação de Exclusão {% endblock titulo_pagina %}
+
+{% block content %}
+    <div class="alert alert-danger" role="alert">
+        Você está removendo o Produto ID: <strong>{{ id }}</strong>
+    </div>
+    
+    <button class="btn btn-danger">Confirmar Exclusão</button>
+    <a href="{% url 'produto' %}" class="btn btn-secondary">Cancelar</a>
+{% endblock %}

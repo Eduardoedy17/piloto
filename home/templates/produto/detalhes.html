@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %} Detalhes do Produto {% endblock title %}
+{% block titulo_pagina %} Detalhes do Produto {% endblock titulo_pagina %}
+
+{% block content %}
+    <div class="alert alert-info" role="alert">
+        Você está vendo detalhes do Produto ID: <strong>{{ id }}</strong>
+    </div>
+    <a href="{% url 'produto' %}" class="btn btn-secondary">Voltar</a>
+{% endblock %}

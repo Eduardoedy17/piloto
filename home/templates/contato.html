@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
 
+{% block title %} Contato {% endblock title %}
 
-{% block titulo  %} Contato {% endblock %}
+{% block titulo_pagina %} Entre em Contato {% endblock titulo_pagina %}
 
+{% block content %}
 
-{% block titulo_page  %} Contato {% endblock %}
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                {% csrf_token %}
+                
+                {{ form.as_p }} 
 
-
-{% block conteudo  %}  
-
-
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }} <!-- Renderiza cada campo do formulário com <p> tags -->
-        <button class="btn btn-primary mt-4" type="submit">Enviar</button>
-    </form>
-
+                <div class="mt-3">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}

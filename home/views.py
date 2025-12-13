@@ -61,8 +61,8 @@ def produtoform(request):
     contexto = {
         'form': form,
     }
-    return render(request, 'produto/form.html', contexto)
-
+    # Correção: apontar para 'produto/formulario.html'
+    return render(request, 'produto/formulario.html', contexto)
 
 # View 'dia da semana'
 def diasemana(request, dia_num):
@@ -79,3 +79,22 @@ def diasemana(request, dia_num):
     # Obtém o dia correspondente ou uma mensagem de erro
     resultado = dias.get(dia_num, 'Dia inválido')
     return render(request, 'diasemana.html', {'dia': resultado})
+
+# ... (mantenha os imports e funções anteriores)
+
+# View para Detalhes do Produto
+def detalhes_produto(request, id):
+    return render(request, 'produto/detalhes.html', {'id': id})
+
+# View para Editar Produto (reutiliza o formulário existente)
+def editar_produto(request, id):
+    form = ProdutoForm() 
+    contexto = {
+        'form': form,
+        'id': id
+    }
+    return render(request, 'produto/formulario.html', contexto)
+
+# View para Excluir Produto
+def excluir_produto(request, id):
+    return render(request, 'produto/excluir.html', {'id': id})
